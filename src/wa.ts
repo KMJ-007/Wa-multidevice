@@ -38,8 +38,12 @@ const shouldReconnect =  (sessionId: string) => {
     return false;
 };
 
-export const sessionExist = (sessionId: string) => {
-  return sessions.has(sessionId); 
+export const sessionExist = (sessionId: string | undefined ) => {
+  if(sessionId){
+    return sessions.has(sessionId); 
+  }else{
+    return false
+  }
 };
 
 export const getSession = (sessionId: string) => {

@@ -53,12 +53,35 @@ The API documentation is available online [here](https://documenter.getpostman.c
 
 ## Setup
 
+
+```
+
+
+## `.env` Configurations
+```env
+# Pino Logger Level
+LOG_LEVEL=warn 
+
+# Database Connection URL
+DATABASE_URL=postgres://postgres:12345@localhost:5432/wa_service
+
+# Reconnect Interval (in Milliseconds)
+RECONNECT_INTERVAL=5000
+
+# Maximum Reconnect Attempts
+MAX_RECONNECT_RETRIES=5
+
+# Auth token to validate the correct request
+AUTH_TOKEN=supersecret
+```
+
+
 1. Copy the `.env.example` file and rename it into `.env`, then update your [connection url](https://www.prisma.io/docs/reference/database-reference/connection-urls) in the `DATABASE_URL` field
-1. Update your [provider](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#fields) in the `prisma/schema.prisma` file if you're using database other than MySQL
+1. Update your [provider](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#fields) in the `prisma/schema.prisma` file if you're using database other than postgresql
 1. Run your [migration](https://www.prisma.io/docs/reference/api-reference/command-reference#prisma-migrate)
 
 ```sh
-npx prisma migrate (dev|deploy)
+npx prisma migrate (dev/deploy)
 ```
 
 or push the schema
@@ -81,27 +104,6 @@ CREATE TABLE "Session" (
 );
 
 CREATE INDEX "Session_sessionId_idx" ON "Session"("sessionId");
-
-```
-
-
-## `.env` Configurations
-```env
-# Pino Logger Level
-LOG_LEVEL=warn 
-
-# Database Connection URL
-DATABASE_URL=postgres://postgres:12345@localhost:5432/wa_service
-
-# Reconnect Interval (in Milliseconds)
-RECONNECT_INTERVAL=5000
-
-# Maximum Reconnect Attempts
-MAX_RECONNECT_RETRIES=5
-
-# Auth token to validate the correct request
-AUTH_TOKEN=supersecret
-```
 
 ## Docker Image:
 pull the image 

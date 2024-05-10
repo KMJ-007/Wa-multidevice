@@ -3,11 +3,11 @@ import { sessionExist } from "../wa";
 
 
 const validateSession:RequestHandler = (req,res,next)=>{
-    // console.log("hello")
-    // console.log(req.query);
-    // @ts-ignore
-    if(!sessionExist(req.query.sessionId)){
+    const sessionId = req.query.sessionId as string | undefined;
+    if(!sessionExist( sessionId )){
         return res.status(404).json({ error: 'Session not found' });
+    }else{
+        console.info("session validation successful")
     }
     next();
 };
