@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body, param, query } from "express-validator";
-import requestValidator from "../middleware/requestValidator";
+import requestValidator from "../middleware/RequestValidator";
 import validateSession from "../middleware/validateSession";
 import messageController from "../controller/messageController";
 

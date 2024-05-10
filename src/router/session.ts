@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import sessionController from '../controller/sessionController';
 import { body, query } from "express-validator";
-import requestValidator from '../middleware/requestValidator';
+import requestValidator from '../middleware/RequestValidator';
 
 const sessionRouter = Router();
 
