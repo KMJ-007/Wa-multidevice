@@ -15,7 +15,7 @@ var corsOptions : any = process.env.CORSOPTIONS ||
 {
   origin:  '*',
    methods: [ 'GET', 'POST', 'PUT', 'DELETE' ],    
-   allowedHeaders: [ 'Content-Type', 'authorization' ],
+   allowedHeaders: [ 'Content-Type', 'authorization','auth_token' ],
    credentials: true
  };
 
